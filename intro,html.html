@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scarface | Relojes de Lujo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+      background-attachment: fixed;
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem 1rem;
+      position: relative;
+      background: #000;
+    }
+    header img.logo {
+      transition: all 0.6s ease-in-out;
+      width: 120px;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 8px gold);
+    }
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 3rem;
+      color: gold;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+    header p {
+      font-style: italic;
+      color: #ccc;
+      margin-top: 0.5rem;
+    }
+    nav {
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+    }
+    nav a {
+      color: gold;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: white;
+    }
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background: url('https://cdn.pixabay.com/photo/2017/08/06/00/03/watch-2583033_1280.jpg') center/cover no-repeat;
+      background-attachment: fixed;
+      position: relative;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      color: gold;
+      background-color: rgba(0,0,0,0.6);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .hero p {
+      max-width: 700px;
+      margin: 2rem auto 0;
+      color: #eee;
+      font-size: 1.2rem;
+      background-color: rgba(0,0,0,0.5);
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      text-align: center;
+      color: gold;
+      margin: 4rem 0 2rem;
+      text-shadow: 0 0 5px gold;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+    .watch-card {
+      flex: 1 1 300px;
+      max-width: 320px;
+      background: #111;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+    .watch-card:hover {
+      transform: translateY(-10px) scale(1.05);
+      background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, rgba(17,17,17,1) 100%);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
+    }
+    .watch-card img {
+      transition: transform 0.8s ease, filter 0.5s ease;
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .watch-card h3 {
+      color: gold;
+      font-size: 1.5rem;
+    }
+    .watch-card p {
+      color: #ccc;
+      font-style: italic;
+    }
+    .quote {
+      max-width: 700px;
+      margin: 4rem auto;
+      text-align: center;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: #ffc107;
+      border-left: 5px solid gold;
+      padding-left: 1rem;
+    }
+    .vision-mission, .founder, footer {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .vision-mission h2, .founder h2, footer h2 {
+      text-align: center;
+      color: gold;
+      font-family: 'Cinzel', serif;
+      margin-bottom: 1rem;
+    }
+    .vision-mission p, .founder p {
+      color: #ccc;
+      text-align: center;
+      line-height: 1.6;
+    }
+    footer {
+      background: #000;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #999;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 { font-size: 2rem; }
+    }
+      .quote {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-in-out;
+    }
+    .quote.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .vision-mission, .founder {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-in-out;
+    }
+    .vision-mission.visible, .founder.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .world-quote {
+      color: gold;
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      font-style: italic;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: quoteFade 1.5s ease-out forwards;
+      animation-delay: 1s;
+    }
+    @keyframes quoteFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes zoomIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+</style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const headerLogo = document.querySelector('header img.logo');
+      headerLogo.style.opacity = 0;
+      headerLogo.style.transform = 'scale(0.8)';
+      setTimeout(() => {
+        headerLogo.style.transition = 'all 1s ease';
+        headerLogo.style.opacity = 1;
+        headerLogo.style.transform = 'scale(1)';
+      }, 300);
+    });
+    const cards = document.querySelectorAll('.watch-card img');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = (y - centerY) / 20;
+      const rotateY = (x - centerX) / 20;
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      card.style.filter = 'brightness(1.2)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+      card.style.filter = 'brightness(1)';
+    });
+  });
+  // Animación de frases motivadoras al hacer scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.quote, .vision-mission, .founder').forEach(el => observer.observe(el));
+</script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      tsParticles.load("tsparticles", {
+        background: {
+          color: "#0d0d0d"
+        },
+        fpsLimit: 60,
+        interactivity: {
+          events: {
+            onClick: { enable: true, mode: "push" },
+            onHover: { enable: true, mode: "repulse" },
+            resize: true
+          },
+          modes: {
+            push: { quantity: 4 },
+            repulse: { distance: 100, duration: 0.4 }
+          }
+        },
+        particles: {
+          color: { value: "#FFD700" },
+          links: { enable: false },
+          collisions: { enable: false },
+          move: {
+            directions: "none",
+            enable: true,
+            outModes: "bounce",
+            random: true,
+            speed: 0.6,
+            straight: false
+          },
+          number: { density: { enable: true, area: 800 }, value: 50 },
+          opacity: { value: 0.5 },
+          shape: { type: "circle" },
+          size: { value: { min: 1, max: 3 } }
+        },
+        detectRetina: true
+      });
+
+      const headerLogo = document.querySelector('header img.logo');
+      headerLogo.style.opacity = 0;
+      headerLogo.style.transform = 'scale(0.8)';
+      setTimeout(() => {
+        headerLogo.style.transition = 'all 1s ease';
+        headerLogo.style.opacity = 1;
+        headerLogo.style.transform = 'scale(1)';
+      }, 300);
+    });
+  </script>
+</head>
+<body>
+  <div id="tsparticles" style="position: fixed; width: 100%; height: 100%; z-index: -1;"></div>
+
+  <header style="background-image: url('/mnt/data/tony_montana_header_1920x600.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative;">
+  <div style="background: rgba(0,0,0,0.6); position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+  <div style="position: relative; z-index: 1; text-align: center; padding: 3rem 1rem 1rem;">
+    <div style="background: rgba(0, 0, 0, 0.5); width: 100%; height: 100%; position: absolute; top: 0; left: 0;"></div>
+    <div style="position: relative; z-index: 1;">
+<img src="jpg.7.png" alt="Logo León Scarface" class="logo" style="animation: zoomIn 1.5s ease-out forwards; opacity: 0; transform: scale(0.8);" />
+    <p class="world-quote">The world is yours</p>
+    <h1>Scarface</h1>
+    <p>"Todo lo que tengo en esta vida, lo conseguí siendo puntual."</p>
+      </div>
+    </div>
+</header>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#vision-mision">Visión y Misión</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#fundador">Fundador</a>
+  </nav>
+
+  <section class="hero" id="inicio">
+    <h2>"Primero consigues el tiempo, luego el dinero, luego el poder."</h2>
+    <p>En Scarface no solo vendemos relojes, vendemos poder en forma de segundos. Porque quien domina su tiempo, domina su destino.</p>
+  </section>
+
+  <div class="quote">"En este mundo, tienes que hacer que el tiempo trabaje para ti, o trabajarás para él."</div>
+
+  <h2 class="section-title" id="catalogo">Catálogo Exclusivo</h2>
+  <section class="gallery" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; padding: 2rem; max-width: 1200px; margin: auto; align-items: center;">
+    <style>
+      .gallery::-webkit-scrollbar {
+        height: 8px;
+      }
+      .gallery::-webkit-scrollbar-thumb {
+        background: gold;
+        border-radius: 10px;
+      }
+      .watch-card {
+        flex: 0 0 auto;
+        width: 300px;
+        scroll-snap-align: start;
+        margin-right: 2rem;
+      }
+    </style>
+    <div class="watch-card" style="margin-left: auto; margin-right: auto;">
+      <img src="jpg.1.webp" alt="Reloj JPG1">
+      <h3>El Patrón</h3>
+      <p>"El mundo es tuyo... si sabes cuándo moverte."</p>
+    </div>
+    <div class="watch-card">
+      <img src="jpg.2.jpg" alt="Reloj JPG2">
+      <h3>La Firma</h3>
+      <p>"No confíes en nadie que no use un buen reloj."</p>
+    </div>
+    <div class="watch-card">
+      <img src="jpg.3.jpg" alt="Reloj JPG3">
+      <h3>El Poder</h3>
+      <p>"La hora no espera... y yo tampoco."</p>
+    </div>
+  </section>
+
+  <div class="quote">"El tiempo es el único enemigo que no puedes sobornar."</div>
+
+  <section class="vision-mission" id="vision-mision">
+  <h2>Visión y Misión</h2>
+  <p><strong>Visión:</strong> Convertirnos en el referente global de relojes de lujo para líderes, visionarios y conquistadores del tiempo. Queremos que cada reloj Scarface sea una declaración de grandeza, poder y propósito.</p>
+  <p><strong>Misión:</strong> Crear y ofrecer piezas únicas que combinen precisión, diseño y distinción. En Scarface, cada segundo cuenta. Nuestra misión es entregar más que relojes: entregamos símbolos de éxito, mentalidad ganadora y estilo eterno.</p>
+</section>
+
+  <section class="founder" id="fundador">
+    <h2>Fundador</h2>
+    <p><strong>Juan Camilo</strong>, empresario colombiano con visión global, fundó Scarface con un ideal: que cada segundo cuente, y que cada reloj cuente tu historia. "No eres grande por lo que tienes, sino por cómo manejas tu tiempo."</p>
+  </section>
+
+  <footer>
+  <h2>Scarface Watches</h2>
+  <p>&copy; 2025 Scarface. Relojes con carácter. Tiempo con respeto.</p>
+  <section class="contact" id="contacto" style="padding: 4rem 2rem; max-width: 1000px; margin: auto; text-align: center;">
+    <h2 style="color: gold; font-family: 'Cinzel', serif; font-size: 2rem; margin-bottom: 1rem;">Contáctanos</h2>
+    <p style="color: #ccc; font-size: 1rem; margin-bottom: 0.5rem;">Teléfono: <a href="https://wa.me/573233706529" style="color: gold; text-decoration: none;">+57 323 370 6529</a></p>
+    <p style="color: #ccc; font-size: 1rem; margin-bottom: 0.5rem;">Correo: <a href="mailto:camilobrito457@gmail.com" style="color: gold; text-decoration: none;">camilobrito457@gmail.com</a></p>
+    <p style="color: #ccc; font-size: 1rem;">Dirección: Medellín, Colombia</p>
+  </section>
+    <p>&copy; 2025 Scarface. Relojes con carácter. Tiempo con respeto.</p>
+  <section class="contact" id="contacto" style="padding: 4rem 2rem; max-width: 1000px; margin: auto; text-align: center;">
+  <h2 style="color: gold; font-family: 'Cinzel', serif; font-size: 2rem; margin-bottom: 1rem;">Contáctanos</h2>
+  <p style="color: #ccc; font-size: 1rem; margin-bottom: 0.5rem;">Teléfono: +57 323 370 6529</p>
+  <p style="color: #ccc; font-size: 1rem; margin-bottom: 0.5rem;">Correo: camilobrito457@gmail.com</p>
+  <p style="color: #ccc; font-size: 1rem;">Dirección: Medellín, Colombia</p>
+</section>
+
+<a href="https://wa.me/573233706529" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; padding: 12px 16px; border-radius: 50px; font-weight: bold; text-decoration: none; box-shadow: 0 0 10px rgba(0,0,0,0.5); z-index: 1000;">
+    💬 WhatsApp
+  </a>
+</body>
+</html>
